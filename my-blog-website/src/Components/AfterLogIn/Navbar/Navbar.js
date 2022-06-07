@@ -1,8 +1,13 @@
 import React from 'react'
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { bindActionCreators } from 'redux';
 import './Navbar.scss';
+import { setIsLogin } from '../../../redux/actions/currencyActions';
+import axios from 'axios';
+import { API } from '../../../API/Api';
 
-function Navbar() {
+function Navbar(props) {
 
     return (
         <>
@@ -50,8 +55,12 @@ function Navbar() {
 
                 <ul className="logout">
                     <li>
-                        <Link to="/">
-                            <i className="fa fa-power-off fa-2x"></i>
+                        <Link to="/" onClick={async () => {
+                            await axios.get(API + "/authentication/logOut")
+                                .then(async() => {
+                                    await props.setIsLogin(false)
+                                })
+                        }}><i className="fa fa-power-off fa-2x"></i>
                             <span className="nav-text">
                                 Çıkış Yap
                             </span>
@@ -61,5 +70,13 @@ function Navbar() {
             </nav>
         </>
     )
-}
-export default Navbar;
+};
+
+
+
+const mapDispatchToProps = dispatch => (
+    (
+        bindActionCreators({ setIsLogin }, dispatch)
+    )
+)
+export default connect(null, mapDispatchToProps)(Navbar);

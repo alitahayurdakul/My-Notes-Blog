@@ -5,7 +5,7 @@ import './SignIn.scss';
 import { API } from '../../../../API/Api';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { setIsLogin } from '../../../../Store/actions';
+import { setIsLogin } from '../../../../redux/actions/currencyActions';
 
 function SignIn(props) {
     let navigate = useNavigate();
@@ -24,9 +24,8 @@ function SignIn(props) {
         await axios.post(API + "/authentication/sign-in", signInData)
 
             .then(async () => {
-                await props.setIsLogin(true);
+               await props.setIsLogin(true);
                 navigate("/")
-
             })
             .catch(error => {
                 if (error.response) {
@@ -63,10 +62,8 @@ function SignIn(props) {
 
 const mapDispatchToProps = dispatch => (
     (
-        bindActionCreators({
-            setIsLogin
-        }, dispatch)
+        bindActionCreators({setIsLogin},dispatch)
     )
 )
 
-export default connect(null, mapDispatchToProps)(SignIn);
+export default connect(null,mapDispatchToProps)(SignIn);

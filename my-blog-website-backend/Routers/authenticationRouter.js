@@ -41,7 +41,8 @@ router.post("/sign-in", async (req, res) => {
         res.cookie("token", token, {
             httpOnly: true,
             secure: true,
-            sameSite: "none"
+            sameSite: "none",
+            expires: new Date(Date.now() + 365*7*24*60*1000),
         }).json({
             userId:existingUser._id
         });
@@ -55,6 +56,7 @@ router.post("/sign-in", async (req, res) => {
 router.get("/loggedIn", async (req, res) => {
 
     try {
+        console.log(req.cookies)
         const token = req.cookies.token;
         if (!token)
             return res.status(401).json(
@@ -94,7 +96,6 @@ router.get("/logOut", async (req, res) => {
     }
     catch (error) {
         res.status(500).send();
-        console.log(error)
     }
 })
 

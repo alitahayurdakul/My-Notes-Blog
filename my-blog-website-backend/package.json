@@ -8,6 +8,8 @@
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.3.4",
     "nodemailer": "^6.7.5",
-    "nodemon": "^2.0.16"
+    "nodemon": "^2.0.16",
+    "to": "^0.2.9",
+    "update": "^0.7.4"
   }
 }

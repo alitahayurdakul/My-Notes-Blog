@@ -2,13 +2,26 @@ import axios from 'axios';
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { bindActionCreators } from 'redux';
-import { createStructuredSelector } from 'reselect';
 import { API } from '../../../API/Api';
-import { selectIsLogin } from '../../../Store/selectors';
-import { setIsLogin } from '../../../Store/actions';
+import { bindActionCreators } from 'redux';
+import { setIsLogin } from '../../../redux/actions/currencyActions';
 
 class Navbar extends Component {
+
+    componentDidMount = async () => {
+        await axios.get(API + "/authentication/loggedIn")
+            .then(async (response) => {
+                this.props.setIsLogin(response.data.isLogin)
+            })
+            .catch(async (error) => {
+                if (error.response) {
+                    if (error.response.data.isLogin)
+                        this.props.setIsLogin(false)
+                }
+            });
+            console.log(this.props.isLogin)
+    }
+
     render() {
         return (
             <nav className="navbar navbar-expand-lg navbar-light">
@@ -84,11 +97,11 @@ class Navbar extends Component {
                                     </li>
                                     {
                                         this.props.isLogin ? <li>
-                                            <Link to="/" onClick={async() =>{
+                                            <Link to="/" onClick={async () => {
                                                 await axios.get(API + "/authentication/logOut")
-                                                .then(async()=>{
-                                                    await this.props.setIsLogin(false)
-                                                })
+                                                    .then(async () => {
+                                                        await this.props.setIsLogin(false)
+                                                    })
                                             }}>
                                                 <i className="fa fa-sign-out"></i>
                                             </Link>
@@ -104,13 +117,15 @@ class Navbar extends Component {
     }
 }
 
-const mapStateToProps = createStructuredSelector({
-    isLogin: selectIsLogin()
-});
+const mapStateToProps = state => {
+    return {
+        isLogin: state.currencyListReducer.isLogin
+    }
+};
 
 const mapDispatchToProps = dispatch => (
     (
-        bindActionCreators({setIsLogin},dispatch)
+        bindActionCreators({ setIsLogin }, dispatch)
     )
 );
 
