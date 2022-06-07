@@ -1,0 +1,63 @@
+.login {
+  margin: 0;
+  padding: 0;
+  justify-content: center;
+  align-items: center;
+  font-family: "Jost", sans-serif;
+  position: fixed;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  min-height: 100%;
+  background-color: #1c4f85;
+
+  form {
+    width: 35%;
+    margin: 150px auto;
+    border: 3px solid transparent;
+    border-radius: 15px;
+    padding-block: 50px;
+    background-color: rgba(0, 0, 0, 0.115);
+    text-align: center;
+
+    h3 {
+      color: white;
+    }
+
+    input,
+    button{
+      width: 70%;
+      margin-block: 10px;
+      padding: 10px;
+    }
+
+    input {
+
+      border-radius: 5px;
+      border: 1px solid blue;
+
+      &:hover {
+        border: 1px solid transparent;
+        box-shadow: 0 0 6px 0 white;
+        color: white;
+        background-color:rgba(0, 0, 0, 0.115) ;
+      }
+
+      &:focus {
+        outline: none;
+        background-color:rgba(0, 0, 0, 0.115) ;
+        color: white;
+      }
+      &::placeholder{
+          color:rgba(255, 255, 255, 0.682);
+      }
+      
+    }
+  }
+  .alert{
+      width: 70%;
+      padding: 5px;
+      font-size: 13px;
+      margin: 0 auto;
+  }
+}
