@@ -1,5 +1,6 @@
 # dependencies
 /my-blog-website/node_modules
+/my-blog-website/build
 /my-blog-website-backend/.env
 /my-blog-website-backend/node_modules
 /.pnp
