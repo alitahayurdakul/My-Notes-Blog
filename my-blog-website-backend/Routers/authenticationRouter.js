@@ -56,7 +56,6 @@ router.post("/sign-in", async (req, res) => {
 router.get("/loggedIn", async (req, res) => {
 
     try {
-        console.log(req.cookies)
         const token = req.cookies.token;
         if (!token)
             return res.status(401).json(

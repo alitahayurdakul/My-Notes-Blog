@@ -37,7 +37,6 @@ class EnglishTest extends Component {
 
     onClickAnswer = (correctAnswer) => {
 
-        console.log(correctAnswer)
         if (correctAnswer === this.state.answer) {
             this.setState({
                 message: "Tebrikler!!!",
@@ -76,7 +75,7 @@ class EnglishTest extends Component {
                 <div className='notes-part'>
 
                     <div className='notes-part-body'>
-                        <div className='notes-part-left'>
+                        <div className='english-tests-part-left'>
                             {
                                 message ?
                                     <div className={`alert ${messageClass}`} role="alert" data-testid="message">

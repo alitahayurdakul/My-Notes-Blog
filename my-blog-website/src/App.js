@@ -29,7 +29,6 @@ axios.defaults.withCredentials = true;
 function App(props) {
 
   const getLoggedIn = async () => {
-    console.log("girdi")
     await axios.get(API + "/authentication/loggedIn")
       .then(async () => {
         await props.setIsLogin(true);

@@ -238,9 +238,15 @@ a {
     margin-block: 30px;
 
     .notes-detail-left-part,
-    .notes-part-left {
+    .notes-part-left,
+    .english-tests-part-left {
       width: 60%;
       margin-right: 10%;
+    }
+
+    .english-tests-part-left{
+      box-shadow: $box-shadow;
+      padding: 10px 30px;
     }
 
     .notes-part-left {
