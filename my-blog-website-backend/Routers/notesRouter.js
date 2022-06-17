@@ -75,7 +75,6 @@ router.get("/detail-by-url/:url", async(req, res) => {
 
     catch(err){
         res.status(500).send();
-        console.log(err)
     }
 
 })

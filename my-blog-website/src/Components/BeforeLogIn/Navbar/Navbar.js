@@ -19,7 +19,6 @@ class Navbar extends Component {
                         this.props.setIsLogin(false)
                 }
             });
-            console.log(this.props.isLogin)
     }
 
     render() {
@@ -45,7 +44,7 @@ class Navbar extends Component {
                             </li>
 
                             <li className="nav-item">
-                                <Link to="/javascript" className='nav-link'>JavaScript</Link >
+                                <Link to="/javascript" className='nav-link' data-cy="js">JavaScript</Link >
                             </li>
 
                             <li className="nav-item" >
@@ -91,13 +90,13 @@ class Navbar extends Component {
                                         </a>
                                     </li>
                                     <li>
-                                        <Link to={this.props.isLogin ? "/my-information" : "/sign-in"}>
+                                        <Link to={this.props.isLogin ? "/my-information" : "/sign-in"} data-cy="user-icon">
                                             <i className="fa fa-user" />
                                         </Link>
                                     </li>
                                     {
                                         this.props.isLogin ? <li>
-                                            <Link to="/" onClick={async () => {
+                                            <Link to="/" data-cy="log-out" onClick={async () => {
                                                 await axios.get(API + "/authentication/logOut")
                                                     .then(async () => {
                                                         await this.props.setIsLogin(false)
