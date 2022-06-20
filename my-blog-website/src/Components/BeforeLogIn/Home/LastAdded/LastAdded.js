@@ -18,8 +18,12 @@ class LastAdded extends Component {
                 //     lastAddedNotes.push(response.data[i])
                 // };
 
+                // this.setState({
+                //     notes: lastAddedNotes
+                // });
+
                 this.setState({
-                    notes: lastAddedNotes
+                    notes: response.data
                 });
             })
     }

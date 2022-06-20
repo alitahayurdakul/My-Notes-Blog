@@ -1,15 +1,15 @@
 import { Route, Routes } from 'react-router-dom';
-import './App.scss'
+import './App.scss';
 import Home from './Components/BeforeLogIn/Home/Home';
 import ReactNotes from './Components/BeforeLogIn/React/ReactNotes';
-import NotePage from './Components/BeforeLogIn/NotePage/NotePage'
+import NotePage from './Components/BeforeLogIn/NotePage/NotePage';
 import NodeJSNotes from './Components/BeforeLogIn/NodeJs/NodeJSNotes';
 import SeoNotes from './Components/BeforeLogIn/SEO/SeoNotes';
 import JavaScriptNotes from './Components/BeforeLogIn/JavaScript/JavaScriptNotes';
 import ReactNativeNotes from './Components/BeforeLogIn/ReactNative/ReactNativeNotes';
 import SignIn from './Components/AfterLogIn/LogIn/SignIn/SignIn';
 import ForgetPassword from './Components/AfterLogIn/LogIn/ForgetPassword/ForgetPassword';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import axios from 'axios';
 import { API } from './API/Api';
 import MyInformation from './Components/AfterLogIn/MyInformation/MyInformation';
@@ -29,7 +29,6 @@ axios.defaults.withCredentials = true;
 function App(props) {
 
   const getLoggedIn = async () => {
-    console.log("girdi")
     await axios.get(API + "/authentication/loggedIn")
       .then(async () => {
         await props.setIsLogin(true);
@@ -74,7 +73,6 @@ function App(props) {
           <Route path="/english-test/word/update/:id" element={<EnglishWordUpdate />} />
         </>:null
         }
-
       </Routes>
     </>
   );

@@ -37,7 +37,6 @@ class EnglishTest extends Component {
 
     onClickAnswer = (correctAnswer) => {
 
-        console.log(correctAnswer)
         if (correctAnswer === this.state.answer) {
             this.setState({
                 message: "Tebrikler!!!",
@@ -62,8 +61,6 @@ class EnglishTest extends Component {
             question:this.state.questions[createRandomNumber(this.state.questions.length)]
         })
     }
-
-
 
     render() {
 

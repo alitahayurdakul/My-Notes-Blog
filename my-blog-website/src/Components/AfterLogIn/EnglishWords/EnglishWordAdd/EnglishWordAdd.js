@@ -83,7 +83,7 @@ class EnglishWordAdd extends Component {
                             <legend >YENİ KELİME VE SORU EKLE</legend>
 
                             {
-                                responseMessage ? <div className={responseMessageClass + " p-2"} role="alert">
+                                responseMessage ? <div className={responseMessageClass + " p-2"} role="alert" data-cy="responseMessage">
                                     {responseMessage}
                                 </div> : null
                             }

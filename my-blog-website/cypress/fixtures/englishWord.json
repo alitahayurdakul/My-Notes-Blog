@@ -1,0 +1,6 @@
+[
+    {"_id":"62ab63c43f238654e6b9c69c","word":"changee","exampleCentence":"bu bir cümle","optionA":"ali","optionB":"change","optionC":"change","correctAnswer":"B","__v":0},
+    {"_id":"62a7153320bf5f6fad9124e6","word":"new2","exampleCentence":"This is new another","optionA":"yeni2","optionB":"eski2","optionC":"yok2","correctAnswer":"A","__v":0},
+    {"_id":"62a7156120bf5f6fad9124f0","word":"new3","exampleCentence":"This is new3","optionA":"yeni3","optionB":"eski3","optionC":"yok3","correctAnswer":"A","__v":0},
+   {"_id":"62a0adbd1d5c773ac2f36577","word":"tenet","exampleCentence":"We are committed to Atatürk's principles.","optionA":"korsan","optionB":"baskı","optionC":"ilke","correctAnswer":"C","__v":0}
+]
